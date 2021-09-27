@@ -5,6 +5,9 @@ substrate程序启动后，对外的接口默认是监听的 `127.0.0.1:9944`，
 ## 生成自签发证书
 
 ```shell
+mkdir -p ssl/certs
+mkdir -p ssl/private
+
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./ssl/private/nginx
 -selfsigned.key -out ./ssl/certs/nginx-selfsigned.crt
 
