@@ -27,7 +27,7 @@ ssl
 ## 启动nginx容器
 
 ```shell
-docker run -d -p 9945:9945 -v "$(pwd)/conf.d:/etc/nginx/conf.d" -v "$(pwd)/ssl:/etc/nginx/ssl" --name polkascan-forward --network=host nginx
+docker run -d -p 9945:9945 -p 9955:9955 -v "$(pwd)/conf.d:/etc/nginx/conf.d" -v "$(pwd)/ssl:/etc/nginx/ssl" --name polkascan-forward --network=host nginx
 ```
 
 将本项目下的nginx配置文件和自签发证书都挂载到容器里，然后对外暴露9945这个端口。注意，因为容器和宿主机不在一个网络内，因此如果要让容器能访问到宿主机的127.0.0.1，需要加上`--network=host` 这个选项
